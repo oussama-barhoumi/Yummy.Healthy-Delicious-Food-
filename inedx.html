@@ -4,26 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/app.css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 <body>
     <section id="home">
               <nav class="navbar">
-            <h1>Yummy <span style="color: red; padding: 0 ; margin: 0;">.</span></h1>
-     <ul class="nav-links">
-         <li class="nav-item" data-target="home">Home</li>
-         <li class="nav-item" data-target="about">About</li>
-         <li class="nav-item" data-target="menu">Menu</li>
-         <li class="nav-item" data-target="events">Events</li>
-         <li class="nav-item" data-target="chef">Chef</li>
-         <li class="nav-item" data-target="gallery">Gallery</li>
-         <li class="nav-item" data-target="dropdown">Dropdown</li>
-         <li class="nav-item" data-target="contact">Contact</li>
-     </ul>
-        <button class="book-table">Book a Table</button>
+              <h1>Yummy <span style="color: red; padding: 0 ; margin: 0;">.</span></h1>
+               <ul class="nav-links">
+                   <li class="nav-item" data-target="home">Home</li>
+                   <li class="nav-item" data-target="about">About</li>
+                   <li class="nav-item" data-target="menu">Menu</li>
+                   <li class="nav-item" data-target="events">Events</li>
+                   <li class="nav-item" data-target="chef">Chef</li>
+                   <li class="nav-item" data-target="gallery">Gallery</li>
+                   <li class="nav-item" data-target="dropdown">Dropdown</li>
+                   <li class="nav-item" data-target="contact">Contact</li>
+               </ul>
+                   <button class="book-table">Book a Table</button>
              </nav>
+             <div class="hero-section">
+
+
+                <div class="hero-content">
+                    <div class="hero-text">
+                       <h1>Enjoy Your Healthy <br>Delicious Food</h1>
+                       <p>We are team of talented designers making websites with Bootstrap</p>
+                     </div>
+                     <div class="hero-buttons">
+                        <button class="explore-menu">Book a Table</button>
+                        <button id="watchBtn"> <i class="bi bi-play-circle"></i> Watch Video</button>
+                       <div class="modal" id="videoModal"> 
+                       <div class="modal-content">
+    <span class="close">&times;</span>
+
+  
+    <iframe
+      id="videoFrame"
+      width="100%"
+      height="315"
+      src="https://youtu.be/5ToQXOXGzjI"
+      title="Video"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+                       </div>
+                        </div>
+                     </div>
+                </div>
+                 <div class="hero-image">
+                    <img src="./public/img/hero-img.png" alt="Healthy Food" class="float-img">
+                 </div>
+            </div>   
     </section>
-    <section id="about"></section>
+
+
+
+
+    <section id="about">
+   <h2 class="section-title">
+    LEARN MORE <span>ABOUT US</span>
+   </h2>
+
+  <div class="about-container">
+    <!-- LEFT -->
+    <div class="about-left">
+      <img src="./public/img/about.jpg" alt="restaurant">
+
+      <div class="book-box">
+        <p>Book a Table</p>
+        <span>+1 5589 55488 55</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="about-right">
+      <p class="intro">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <ul>
+        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+        <li>
+          Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate trideta
+          storacalaperda mastiro dolore eu fugiat nulla pariatur.
+        </li>
+      </ul>
+
+      <p class="text">
+        Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur.
+      </p>
+
+      <div class="video-box">
+        <img src="./public/img/stats-bg.jpg" alt="food">
+        <div class="play-btn">▶</div>
+      </div>
+    </div>
+  </div>
+
+    </section>
     <section id="menu"></section>
     <section id="events"></section>
     <section id="chef"></section>

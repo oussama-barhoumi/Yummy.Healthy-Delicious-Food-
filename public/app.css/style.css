@@ -3,17 +3,25 @@
     margin: 0;
     padding: 0;
 }
+@font-face {
+  font-family: myFont; 
+  src: url(../font/AmaticSC-Bold.ttf);
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #fffefe;
 }
 .navbar {
+    top: 0;
+    width: 100%;
+    position: fixed;
     display: flex;
     background-color:  #fffefe;
     align-items: center;
     padding: 1.3vw 5vw;
     border-bottom: 2px solid rgb(206, 19, 18);
     justify-content: space-around;
+    z-index: 1000000000;
 
 
 }
@@ -52,4 +60,212 @@ body {
     padding: 0.7vw 2vw;
     border-radius: 50px;
     cursor: pointer;
+}
+.book-table:hover {
+    background-color: red;
+}
+@media screen and (max-width: 430px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .navbar h1 {
+      margin-bottom: auto; 
+      color: rosybrown;   
+    }
+
+    }
+    .hero-section{
+        margin-top: 6VW;
+        display: flex;  
+        align-items: center;
+        text-align: start;
+        justify-content: space-around;
+        justify-items: center;
+     
+        background-color:#f3f3f2;
+    }
+    img{
+       width: 35vw;
+    }
+    .hero-text{
+      display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2vw;
+        font-family: myFont;
+        font-size: 2vw;
+   
+    }
+   .hero-content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2vw;
+   }
+
+   .hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+   }
+
+   .hero-buttons button{
+    background-color: rgb(206, 19, 18);
+    color: white;
+    border: none;
+    padding: 0.5vw 1.5vw;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1vw;
+
+   }
+   .hero-buttons button:hover {
+    background-color: red;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+#about {
+    margin: 1VW;
+  padding: 80px 8%;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: #ce1212;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 10vw;
+}
+
+
+.about-left img {
+  width: 100%;
+  display: block;
+}
+
+.book-box {
+  border: 2px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.book-box p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.book-box span {
+  color: #ce1212;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.about-right .intro {
+  font-style: italic;
+  color: #666;
+}
+
+.about-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.about-right ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+.about-right ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #ce1212;
+  font-weight: bold;
+}
+
+.about-right .text {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+
+.video-box {
+  position: relative;
+  width: 100%;
+  height: 40.8vh;
+}
+
+.video-box img {
+  width: 100%;
+  display: block;
+    height: 40.8vh;
+}
+
+.play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.play-btn:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
 }
