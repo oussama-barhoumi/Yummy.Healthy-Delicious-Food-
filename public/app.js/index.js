@@ -1,29 +1,34 @@
-const navItems = document.querySelectorAll(".nav-item");
+const items = document.querySelectorAll(".nav-item, .book-table");
 const sections = document.querySelectorAll("section");
+
 
 window.addEventListener("scroll", () => {
   let current = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-
-    if (scrollY >= sectionTop - 150) {
-      current = section.getAttribute("id");
+    const sectionTop = section.offsetTop - 160;
+    if (window.scrollY >= sectionTop) {
+      current = section.id;
     }
   });
 
-  navItems.forEach(item => {
+  items.forEach(item => {
     item.classList.remove("active");
     if (item.dataset.target === current) {
       item.classList.add("active");
     }
   });
 });
-navItems.forEach(item => {
+
+// CLICK SCROLL
+items.forEach(item => {
   item.addEventListener("click", () => {
-    document.getElementById(item.dataset.target)
-      .scrollIntoView({ behavior: "smooth" });   
+    const target = item.dataset.target;
+    if (!target) return;
+
+    document
+      .getElementById(target)
+      .scrollIntoView({ behavior: "smooth" });
   });
 });
 
@@ -74,7 +79,7 @@ observer.observe(img);
 
 // animate();
 const watchBtn = document.getElementById("watchBtn");
-const modal = document.getElementById("videoModal");
+const modal1 = document.getElementById("videoModal");
 const closeBtn = document.querySelector(".close");
 const videoFrame = document.getElementById("videoFrame");
 
@@ -83,17 +88,68 @@ const videoID = "5ToQXOXGzjI";
 const videoURL = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
 
 watchBtn.addEventListener("click", () => {
-  modal.style.display = "flex";
+  modal1.style.display = "flex";
   videoFrame.src = videoURL;
 });
 
 function closeModal() {
-  modal.style.display = "none";
+  modal1.style.display = "none";
   videoFrame.src = ""; 
 }
 
 closeBtn.addEventListener("click", closeModal);
 
-modal.addEventListener("click", e => {
-  if (e.target === modal) closeModal();
+modal1.addEventListener("click", e => {
+  if (e.target === modal1) closeModal();
 });
+
+
+
+const form = document.getElementById("resForm");
+const tableSelect = document.getElementById("table");
+const modal = document.getElementById("modal");
+const modalText = document.getElementById("modalText");
+
+
+const tables = Array.from({ length: 14 }, (_, i) => `Table ${i + 1}`);
+
+
+let reservations = [];
+
+
+tables.forEach(t => {
+  const option = document.createElement("option");
+  option.value = t;
+  option.textContent = t;
+  tableSelect.appendChild(option);
+});
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const table = tableSelect.value;
+
+
+  const exists = reservations.find(
+    r => r.date === date && r.time === time && r.table === table
+  );
+
+  if (exists) {
+    showModal("❌This table is already reserved at this time!");
+  } else {
+    reservations.push({ date, time, table });
+    showModal(" Table reserved successfully!");
+    form.reset();
+  }
+});
+
+function showModal(msg) {
+  modalText.textContent = msg;
+  modal.style.display = "flex";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
