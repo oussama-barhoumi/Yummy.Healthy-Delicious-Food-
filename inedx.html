@@ -22,7 +22,7 @@
                    <li class="nav-item" data-target="contact">Contact</li>
                   </ul>
                   
-                  <button class="book-table" data-target="reservation">Book a Table</button>
+                  <button class="book-table" id="openReservation">Book a Table</button>
                 </nav>
              <div class="hero-section">
 
@@ -168,7 +168,243 @@
 
 
 
-    <section id="menu"></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="menu" class="menu-section">
+
+  <h1 class="section-title">
+    CHECK OUR <span>MENU</span>
+  </h1>
+
+  <!-- TABS -->
+  <div class="menu-tabs">
+    <button class="tab active" data-category="Starters">Starters</button>
+    <button class="tab" data-category="Breakfast">Breakfast</button>
+    <button class="tab" data-category="Lunch">Lunch</button>
+    <button class="tab" data-category="Dinner">Dinner</button>
+  </div>
+
+  <!-- MENU ITEMS -->
+  <div class="menu-app">
+
+    <!-- Starters -->
+    <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400">
+      <h4>Magnam Tiam</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$5.95</span>
+    </div>
+
+    <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400">
+      <h4>Aut Luia</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$6.50</span>
+    </div>
+
+    <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=400">
+      <h4>Est Eligendi</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$7.20</span>
+    </div>
+        <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400">
+      <h4>Magnam Tiam</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$5.95</span>
+    </div>
+
+    <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400">
+      <h4>Aut Luia</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$6.50</span>
+    </div>
+
+    <div class="menu-item" data-category="Starters">
+      <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=400">
+      <h4>Est Eligendi</h4>
+      <p>Lorem, deren, trataro</p>
+      <span class="price">$7.20</span>
+    </div>
+
+    <!-- Breakfast -->
+    <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400">
+      <h4>Pancakes</h4>
+      <p>Butter, honey</p>
+      <span class="price">$4.80</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400">
+      <h4>Omelette</h4>
+      <p>Eggs & cheese</p>
+      <span class="price">$5.30</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?w=400">
+      <h4>Croissant</h4>
+      <p>Fresh butter</p>
+      <span class="price">$3.90</span>
+    </div>
+        <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400">
+      <h4>Pancakes</h4>
+      <p>Butter, honey</p>
+      <span class="price">$4.80</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400">
+      <h4>Omelette</h4>
+      <p>Eggs & cheese</p>
+      <span class="price">$5.30</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Breakfast">
+      <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?w=400">
+      <h4>Croissant</h4>
+      <p>Fresh butter</p>
+      <span class="price">$3.90</span>
+    </div>
+
+    <!-- Lunch -->
+    <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1604908554026-7d2a3c8f7d6b?w=400">
+      <h4>Grilled Chicken</h4>
+      <p>Vegetables</p>
+      <span class="price">$9.90</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400">
+      <h4>Pasta</h4>
+      <p>Italian sauce</p>
+      <span class="price">$8.50</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1625943553852-781c6dd46faa?w=400">
+      <h4>Pizza</h4>
+      <p>Cheese & tomato</p>
+      <span class="price">$10.00</span>
+    </div>
+        <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1604908554026-7d2a3c8f7d6b?w=400">
+      <h4>Grilled Chicken</h4>
+      <p>Vegetables</p>
+      <span class="price">$9.90</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400">
+      <h4>Pasta</h4>
+      <p>Italian sauce</p>
+      <span class="price">$8.50</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Lunch">
+      <img src="https://images.unsplash.com/photo-1625943553852-781c6dd46faa?w=400">
+      <h4>Pizza</h4>
+      <p>Cheese & tomato</p>
+      <span class="price">$10.00</span>
+    </div>
+
+    <!-- Dinner -->
+    <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
+      <h4>Steak</h4>
+      <p>Grilled beef</p>
+      <span class="price">$14.50</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1604908177522-b0efb28f8b9b?w=400">
+      <h4>Seafood</h4>
+      <p>Fresh fish</p>
+      <span class="price">$13.20</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1601050690294-397f3c324515?w=400">
+      <h4>Soup</h4>
+      <p>Hot & tasty</p>
+      <span class="price">$6.80</span>
+    </div>
+        <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
+      <h4>Steak</h4>
+      <p>Grilled beef</p>
+      <span class="price">$14.50</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1604908177522-b0efb28f8b9b?w=400">
+      <h4>Seafood</h4>
+      <p>Fresh fish</p>
+      <span class="price">$13.20</span>
+    </div>
+
+    <div class="menu-item hide" data-category="Dinner">
+      <img src="https://images.unsplash.com/photo-1601050690294-397f3c324515?w=400">
+      <h4>Soup</h4>
+      <p>Hot & tasty</p>
+      <span class="price">$6.80</span>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section id="events"></section>
     <section id="chef"></section>
     <section id="reservation">
@@ -196,6 +432,7 @@
         <select id="table" required>
           <option value="">Choose Table</option>
         </select>
+        <input type="number" placeholder="# of people" required />
       </div>
 
       <textarea id="message" placeholder="Message"></textarea>
@@ -217,6 +454,50 @@
     <section id="gallery"></section>
     <section id="dropdown"></section>
     <section id="contact"></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+<form class="resForm" >
+  <input type="text" required placeholder="Your Name">
+  <input type="email" required placeholder="Your Email">
+  <input type="tel" required placeholder="Your Phone">
+
+  <div class="row">
+    <input type="date" class="res-date" required>
+    <input type="time" class="res-time" required>
+
+    <select class="res-table" required>
+      <option value="">Choose Table</option>
+    </select>
+
+    <input type="number" class="res-people" placeholder="# of people" required>
+  </div>
+
+  <textarea placeholder="Message"></textarea>
+  <button type="submit">Confirm Reservation</button>
+</form>
 <script src="./public/app.js/index.js"></script>
 </body>
 </html>

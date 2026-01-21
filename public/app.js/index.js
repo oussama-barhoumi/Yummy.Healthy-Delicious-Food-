@@ -20,7 +20,7 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// CLICK SCROLL
+
 items.forEach(item => {
   item.addEventListener("click", () => {
     const target = item.dataset.target;
@@ -105,51 +105,137 @@ modal1.addEventListener("click", e => {
 
 
 
-const form = document.getElementById("resForm");
-const tableSelect = document.getElementById("table");
+const forms = document.querySelectorAll(".resForm");
 const modal = document.getElementById("modal");
 const modalText = document.getElementById("modalText");
 
+const TOTAL_TABLES = 8;
+const MAX_PEOPLE = 4;
+const MAX_HOURS = 2;
 
-const tables = Array.from({ length: 14 }, (_, i) => `Table ${i + 1}`);
+const tables = Array.from({ length: TOTAL_TABLES }, (_, i) => `Table ${i + 1}`);
+
+let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
 
 
-let reservations = [];
-
-
-tables.forEach(t => {
-  const option = document.createElement("option");
-  option.value = t;
-  option.textContent = t;
-  tableSelect.appendChild(option);
+document.querySelectorAll(".res-table").forEach(select => {
+  tables.forEach(t => {
+    const option = document.createElement("option");
+    option.value = t;
+    option.textContent = t;
+    select.appendChild(option);
+  });
 });
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
-  const table = tableSelect.value;
-
-
-  const exists = reservations.find(
-    r => r.date === date && r.time === time && r.table === table
-  );
-
-  if (exists) {
-    showModal("❌This table is already reserved at this time!");
-  } else {
-    reservations.push({ date, time, table });
-    showModal(" Table reserved successfully!");
-    form.reset();
-  }
-});
 
 function showModal(msg) {
   modalText.textContent = msg;
   modal.style.display = "flex";
 }
-
 function closeModal() {
   modal.style.display = "none";
 }
+
+function validTime(date, time) {
+  const now = new Date();
+  const selected = new Date(`${date}T${time}`);
+  const diffHours = (now - selected) / (1000 * 60 * 60);
+  return diffHours <= MAX_HOURS;
+}
+
+
+function handleReservation(form) {
+  const date = form.querySelector(".res-date").value;
+  const time = form.querySelector(".res-time").value;
+  const table = form.querySelector(".res-table").value;
+  const people = Number(form.querySelector(".res-people").value);
+
+  if (!table) return showModal(" Please choose a table");
+  if (people > MAX_PEOPLE) return showModal(" Max 4 people per table");
+  if (!validTime(date, time)) return showModal(" Time already expired");
+
+  const exists = reservations.find(r =>
+    r.date === date && r.time === time && r.table === table
+  );
+
+  if (exists) return showModal(" Table already reserved");
+
+  reservations.push({ date, time, table, people });
+  localStorage.setItem("reservations", JSON.stringify(reservations));
+
+  showModal("Reservation confirmed!");
+  form.reset();
+}
+
+
+forms.forEach(form => {
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    handleReservation(form);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+const tabs = document.querySelectorAll(".tab");
+const menuItems = document.querySelectorAll(".menu-item");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+  
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const category = tab.dataset.category;
+
+    menuItems.forEach(menuItem => {
+      if (menuItem.dataset.category === category) {
+
+    
+        menuItem.classList.remove("hide");
+
+        menuItem.animate(
+          [
+            { opacity: 0, transform: "scale(0.9) translateY(20px)" },
+            { opacity: 1, transform: "scale(1) translateY(0)" }
+          ],
+          {
+            duration: 400,
+            easing: "ease-out",
+            fill: "forwards"
+          }
+        );
+
+      } else {
+
+    
+        menuItem.animate(
+          [
+            { opacity: 1, transform: "scale(1) translateY(0)" },
+            { opacity: 0, transform: "scale(0.9) translateY(20px)" }
+          ],
+          {
+            duration: 300,
+            easing: "ease-in",
+            fill: "forwards"
+          }
+        );
+
+        setTimeout(() => {
+          menuItem.classList.add("hide");
+        }, 300);
+      }
+    });
+
+  });
+});
