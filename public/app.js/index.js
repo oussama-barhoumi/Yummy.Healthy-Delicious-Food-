@@ -80,9 +80,8 @@ observer.observe(img);
 // animate();
 const watchBtn = document.getElementById("watchBtn");
 const modal1 = document.getElementById("videoModal");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.getElementById("closeVideo");
 const videoFrame = document.getElementById("videoFrame");
-
 
 const videoID = "5ToQXOXGzjI";
 const videoURL = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
@@ -94,13 +93,20 @@ watchBtn.addEventListener("click", () => {
 
 function closeModal() {
   modal1.style.display = "none";
-  videoFrame.src = ""; 
+  videoFrame.src = "";
 }
 
 closeBtn.addEventListener("click", closeModal);
 
 modal1.addEventListener("click", e => {
   if (e.target === modal1) closeModal();
+});
+
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Delete" && modal1.style.display === "flex") {
+    closeModal();
+  }
 });
 
 
@@ -136,6 +142,7 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+
 function validTime(date, time) {
   const now = new Date();
   const selected = new Date(`${date}T${time}`);
@@ -163,7 +170,7 @@ function handleReservation(form) {
   reservations.push({ date, time, table, people });
   localStorage.setItem("reservations", JSON.stringify(reservations));
 
-  showModal("Reservation confirmed!");
+  showModal(" Reservation confirmed!");
   form.reset();
 }
 
@@ -174,9 +181,6 @@ forms.forEach(form => {
     handleReservation(form);
   });
 });
-
-
-
 
 
 
@@ -238,4 +242,21 @@ tabs.forEach(tab => {
     });
 
   });
+});
+const openBtn = document.getElementById("openReservation");
+const closeBtn1 = document.getElementById("closeReservation");
+const modal2 = document.getElementById("reservationModal");
+
+openBtn.addEventListener("click", () => {
+  modal2.style.display = "flex";
+});
+
+closeBtn1.addEventListener("click", () => {
+  modal2.style.display = "none";
+});
+
+modal2.addEventListener("click", e => {
+  if (e.target === modal2) {
+    modal2.style.display = "none";
+  }
 });

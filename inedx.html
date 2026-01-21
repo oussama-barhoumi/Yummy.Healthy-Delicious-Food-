@@ -34,23 +34,22 @@
                      </div>
                      <div class="hero-buttons">
                         <button class="explore-menu">Book a Table</button>
-                        <button id="watchBtn"> <i class="bi bi-play-circle"></i> Watch Video</button>
-                       <div class="modal" id="videoModal"> 
-                       <div class="modal-content">
-                      <span class="close">&times;</span>
+<button id="watchBtn">Watch Video</button>
 
-   <iframe
+<div id="videoModal" class="modal">
+  <div class="modal-box">
+    <span id="closeVideo">&times;</span>
+
+    <iframe
       id="videoFrame"
       width="100%"
       height="315"
-      src="https://youtu.be/5ToQXOXGzjI"
-      title="Video"
       frameborder="0"
-      allow="autoplay; fullscreen"
+      allow="autoplay; encrypted-media"
       allowfullscreen>
     </iframe>
-                       </div>
-                        </div>
+  </div>
+</div>
                      </div>
                 </div>
                  <div class="hero-image">
@@ -415,30 +414,31 @@
   <div class="res-container">
    
     <div class="res-image">
-      <img src="food.jpg" alt="">
+      <img src="./public/img/stats-bg.jpg" alt="">
     </div>
 
  
-    <form id="resForm">
-      <div class="row">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <input type="tel" id="phone" placeholder="Your Phone" required>
-      </div>
+ <form class="resForm">
+  <div class="row">
+    <input type="text" required placeholder="Your Name">
+    <input type="email" required placeholder="Your Email">
+    <input type="tel" required placeholder="Your Phone">
+  </div>
 
-      <div class="row">
-        <input type="date" id="date" required>
-        <input type="time" id="time" required>
-        <select id="table" required>
-          <option value="">Choose Table</option>
-        </select>
-        <input type="number" placeholder="# of people" required />
-      </div>
+  <div class="row">
+    <input type="date" class="res-date" required>
+    <input type="time" class="res-time" required>
 
-      <textarea id="message" placeholder="Message"></textarea>
+    <select class="res-table" required>
+      <option value="">Choose Table</option>
+    </select>
 
-      <button type="submit">Book a Table</button>
-    </form>
+    <input type="number" class="res-people" placeholder="# of people" required>
+  </div>
+
+  <textarea placeholder="Message"></textarea>
+  <button type="submit">Book a Table</button>
+</form>
   </div>
 
 </section>
@@ -479,25 +479,33 @@
    
 
 
-<form class="resForm" >
-  <input type="text" required placeholder="Your Name">
-  <input type="email" required placeholder="Your Email">
-  <input type="tel" required placeholder="Your Phone">
+<div class="modal" id="reservationModal">
+  <div class="modal-box">
+    <span class="close-modal" id="closeReservation">&times;</span>
 
-  <div class="row">
-    <input type="date" class="res-date" required>
-    <input type="time" class="res-time" required>
+    <h2>Book a Table</h2>
 
-    <select class="res-table" required>
-      <option value="">Choose Table</option>
-    </select>
+    <form class="resForm">
+      <input type="text" required placeholder="Your Name">
+      <input type="email" required placeholder="Your Email">
+      <input type="tel" required placeholder="Your Phone">
 
-    <input type="number" class="res-people" placeholder="# of people" required>
+      <div class="row">
+        <input type="date" class="res-date" required>
+        <input type="time" class="res-time" required>
+
+        <select class="res-table" required>
+          <option value="">Choose Table</option>
+        </select>
+
+        <input type="number" class="res-people" placeholder="# of people" required>
+      </div>
+
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Confirm Reservation</button>
+    </form>
   </div>
-
-  <textarea placeholder="Message"></textarea>
-  <button type="submit">Confirm Reservation</button>
-</form>
+</div>
 <script src="./public/app.js/index.js"></script>
 </body>
 </html>
